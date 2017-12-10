@@ -1,0 +1,64 @@
+html {
+    background-color: #333;
+}
+body {
+    width: auto;
+    margin: 0;
+}
+
+h2 {
+    color: #fff;
+    text-align: center;
+    font-family: 'ArialMT',sans-serif ;
+}
+
+
+.main-section {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 15px;
+
+}
+
+
+
+input + span {
+    display: inline-block;
+}
+
+input[type=text],
+input[type=text]:focus {
+    border: 1px solid #ccc;
+    box-shadow: 0;
+    border-radius: 3px;
+    max-width: 100%;
+    width: 99%;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+input {
+    display: inline-block;
+    font-size: 20px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    font-family: 'ArialMT',sans-serif ;
+    color: #fff;
+    list-style-type: none;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.error-msg {
+    display: block;
+    font-family: Arial;
+    margin: 15px auto;
+    color: rgb(160, 60, 60);
+}
