@@ -1,14 +1,18 @@
 import  React from 'react';
+import  {partial} from '../../lib/utils'
 
 export const TodoItem = (props) => {
-    
-    const handleToggleTodDo = (evt) => {
-
-    }
+    // viejo const handleToggle = ()=> props.handleToggle.bind(null, props.id)
+    const handleToggle = partial(props.handleToggle, props.id)    
+    const handleRemove = partial(props.handleRemove, props.id)    
 
     return (
-        <li>
-            <input onClick={handleToggleTodDo.bind(this)} type="checkbox" defaultChecked={props.isComplete}/> <span>{props.name}</span>
+        <li className="item-list">
+            <a href="" className="delete-item" onClick={handleRemove}>X</a>
+            <input onChange={handleToggle} id="pepe"
+                   type="checkbox" 
+                   checked={props.isComplete}/>
+                   <span>{props.name}</span>            
         </li>
     )
 };

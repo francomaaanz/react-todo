@@ -1,7 +1,9 @@
 import  React from 'react';
 import {TodoForm} from './components/todo/TodoForm'
 import {TodoList} from './components/todo/TodoList'
-import {addTodo,generateId} from './lib/TodoHelper'
+import {Footer} from './components/todo/Footer'
+import {addTodo,generateId, findById, toggleToDo, updateTodo, removeTodo} from './lib/TodoHelper'
+import {pipe, partial} from './lib/utils'
 import './App.css';
 
 
@@ -15,6 +17,23 @@ class App extends React.Component {
         currentTodo: '',
         errorMessage: ''
     };
+
+    handleRemove = (id, evt) => {
+        evt.preventDefault();
+        const updatedTodos = removeTodo(this.state.todos, id)
+        this.setState({
+            todos: updatedTodos
+        })
+    } 
+
+    handleToggle = (id) => {
+        const getUpdatesTodos = pipe(findById, toggleToDo, partial(updateTodo, this.state.todos))
+        
+        const updatedTodos = getUpdatesTodos(id, this.state.todos)        
+        this.setState({
+            todos: updatedTodos
+        })
+    }
          
     handleSubmit = (evt) => {
 
@@ -59,7 +78,11 @@ class App extends React.Component {
                           currentTodo={this.state.currentTodo}/>
                 </div>
                 { this.state.errorMessage && <span className="error-msg">{this.state.errorMessage}</span> }
-                <TodoList  todos={this.state.todos} />
+                <TodoList 
+                    handleRemove={this.handleRemove}
+                    handleToggle={this.handleToggle} 
+                    todos={this.state.todos} />
+                    <Footer />
             </section>
         )
     }

@@ -12,7 +12,6 @@ h2 {
     font-family: 'ArialMT',sans-serif ;
 }
 
-
 .main-section {
     display: block;
     margin: 0 auto;
@@ -20,8 +19,6 @@ h2 {
     padding: 15px;
 
 }
-
-
 
 input + span {
     display: inline-block;
@@ -61,4 +58,20 @@ li {
     font-family: Arial;
     margin: 15px auto;
     color: rgb(160, 60, 60);
+}
+
+li a.delete-item,
+li a.delete-item:visited,
+a:-webkit-any-link {
+    color: #fff !important;
+    text-decoration: none;
+    margin-right: 15px;
+    vertical-align: top;
+}
+li span,
+li input {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+    margin-right: 5px;
 }
